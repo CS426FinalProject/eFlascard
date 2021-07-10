@@ -1,11 +1,12 @@
 package com.example.eflashcard;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class WordGenerator {
-    public List<Word> generate()
-    {
+    public List<Word> generate() {
         List<Word> words = new ArrayList<>();
         words.add(new Word("Math", "Toan"));
         words.add(new Word("Literature", "Ngu van"));

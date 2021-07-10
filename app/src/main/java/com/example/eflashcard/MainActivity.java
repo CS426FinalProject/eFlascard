@@ -3,6 +3,7 @@ package com.example.eflashcard;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSnapHelper;
+import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(new FlashcardAdapter(generator.generate(),this));
 
-        SnapHelper helper = new LinearSnapHelper();
+        SnapHelper helper = new PagerSnapHelper();
         helper.attachToRecyclerView(recyclerView);
     }
 }

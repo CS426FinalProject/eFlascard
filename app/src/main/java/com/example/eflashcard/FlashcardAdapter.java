@@ -80,8 +80,6 @@ public class FlashcardAdapter extends RecyclerView.Adapter<FlashcardAdapter.View
                 mIsBackVisible.set(false);
             }
         });
-
-
     }
 
     @Override

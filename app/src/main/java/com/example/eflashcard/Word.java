@@ -20,11 +20,16 @@ public class Word {
 
     // Get the image ID in the drawable folder
     public int getImageID(Context context) {
-        return context.getResources().getIdentifier(word, "drawable", context.getPackageName());
+        return context.getResources().getIdentifier(word.toLowerCase().replace(' ', '_'),
+                "drawable",
+                context.getPackageName());
     }
 
     // Get the audio ID in the raw folder
     public int getAudioID(Context context) {
-        return context.getResources().getIdentifier(word, "raw", context.getPackageName());
+        word = word.toLowerCase().replace(' ', '_');
+        return context.getResources().getIdentifier(word.toLowerCase().replace(' ', '_'),
+                "raw",
+                context.getPackageName());
     }
 }

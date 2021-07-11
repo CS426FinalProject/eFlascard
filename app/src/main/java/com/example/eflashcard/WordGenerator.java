@@ -13,22 +13,20 @@ public class WordGenerator {
 
         public List<Word> generateMathWords() {
             List<Word> words = new ArrayList<>();
-            words.add(new Word("linear_function", "Phương trình tuyến tính"));
-            words.add(new Word("integral", "nguyên phân"));
-            words.add(new Word("implies", "suy ra"));
-            words.add(new Word("matrix", "ma trận"));
-            words.add(new Word("perpendicular", "vuông góc"));
-            words.add(new Word("therefor", "do đó"));
-            words.add(new Word("angel", "góc"));
-            words.add(new Word("factorial", "giai thừa"));
-            words.add(new Word("vector", "véc tơ"));
-            words.add(new Word("square_root", "căn bậc 2"));
+            words.add(new Word("Linear function", "Phương trình tuyến tính"));
+            words.add(new Word("Integral", "nguyên phân"));
+            words.add(new Word("Implies", "suy ra"));
+            words.add(new Word("Matrix", "ma trận"));
+            words.add(new Word("Perpendicular", "vuông góc"));
+            words.add(new Word("Therefore", "do đó"));
+            words.add(new Word("Angel", "góc"));
+            words.add(new Word("Factorial", "giai thừa"));
+            words.add(new Word("Fector", "véc tơ"));
+            words.add(new Word("Square_root", "căn bậc 2"));
 
 
             return words;
-        }
-
-
+        }// oke?
     public List<Word> generateChemistryWords() {
         List<Word> words = new ArrayList<>();
         words.add(new Word("Acid", "Axit"));

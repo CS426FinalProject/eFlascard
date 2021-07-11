@@ -1,4 +1,4 @@
-package com.example.eflashcard;
+package com.example.eflashcard.adapters;
 
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
@@ -14,6 +14,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.eflashcard.R;
+import com.example.eflashcard.models.Word;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;

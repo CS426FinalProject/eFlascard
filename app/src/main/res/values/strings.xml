@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">EFlashcard</string>
     <string name="pronounce">Pronounce</string>
+    <string name="study">Study</string>
+    <string name="test">Test</string>
+    <string name="about">About</string>
+    <string name="math">Maths</string>
+    <string name="physics">Physics</string>
+    <string name="chemistry">Chemistry</string>
+    <string name="topics">Topics</string>
+    <string name="e_flashcard">E-Flashcard</string>
 </resources>

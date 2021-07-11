@@ -1,9 +1,8 @@
-package com.example.eflashcard;
+package com.example.eflashcard.generator;
 
-import android.content.Context;
+import com.example.eflashcard.models.Word;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class WordGenerator {

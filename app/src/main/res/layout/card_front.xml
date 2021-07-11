@@ -8,13 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="30dp"
-        android:src="@drawable/rectangle"/>
+        android:src="@drawable/background_front_card"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center">
         <TextView
+            android:fontFamily="@font/helvetica"
             android:textAlignment="center"
             android:id="@+id/word"
             android:layout_width="320dp"
@@ -22,5 +23,4 @@
             android:textColor="@color/white"
             style="@style/Base.TextAppearance.AppCompat.Display1"/>
     </LinearLayout>
-
 </FrameLayout>

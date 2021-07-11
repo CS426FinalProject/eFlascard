@@ -7,9 +7,9 @@ import java.util.List;
 public class WordGenerator {
 
 
-    class generateMathWords  {
 
-        public List<Word> generate() {
+
+        public List<Word> generateMathWords() {
             List<Word> words = new ArrayList<>();
             words.add(new Word("linear_function", "Phương trình tuyến tính"));
             words.add(new Word("integral", "nguyên phân"));
@@ -26,5 +26,5 @@ public class WordGenerator {
             return words;
         }
 
-    }
+
 }

@@ -27,6 +27,24 @@ public class WordGenerator {
 
             return words;
         }// oke?
+
+        public List<Word> generateMathWords() {
+            List<Word> words = new ArrayList<>();
+            words.add(new Word("linear_function", "Phương trình tuyến tính"));
+            words.add(new Word("integral", "nguyên phân"));
+            words.add(new Word("implies", "suy ra"));
+            words.add(new Word("matrix", "ma trận"));
+            words.add(new Word("perpendicular", "vuông góc"));
+            words.add(new Word("therefor", "do đó"));
+            words.add(new Word("angel", "góc"));
+            words.add(new Word("factorial", "giai thừa"));
+            words.add(new Word("vector", "véc tơ"));
+            words.add(new Word("square_root", "căn bậc 2"));
+
+
+            return words;
+        }
+
     public List<Word> generateChemistryWords() {
         List<Word> words = new ArrayList<>();
         words.add(new Word("Acid", "Axit"));

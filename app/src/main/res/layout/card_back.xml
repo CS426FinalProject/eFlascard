@@ -18,11 +18,12 @@
         <TextView
             android:id="@+id/definition"
             android:text="Axit"
-            android:layout_width="wrap_content"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             style="@style/Base.TextAppearance.AppCompat.Display1"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"/>
         <ImageView
             android:id="@+id/pic"
             android:src="@drawable/acid"

@@ -7,25 +7,18 @@ import java.util.Collection;
 import java.util.List;
 
 public class WordGenerator {
-
-
-
-
-
         public List<Word> generateMathWords() {
             List<Word> words = new ArrayList<>();
-            words.add(new Word("linear_function", "Phương trình tuyến tính"));
-            words.add(new Word("integral", "nguyên phân"));
-            words.add(new Word("implies", "suy ra"));
-            words.add(new Word("matrix", "ma trận"));
-            words.add(new Word("perpendicular", "vuông góc"));
-            words.add(new Word("therefor", "do đó"));
-            words.add(new Word("angel", "góc"));
-            words.add(new Word("factorial", "giai thừa"));
-            words.add(new Word("vector", "véc tơ"));
-            words.add(new Word("square_root", "căn bậc 2"));
-
-
+            words.add(new Word("Linear function", "Phương trình tuyến tính"));
+            words.add(new Word("Integral", "Nguyên phân"));
+            words.add(new Word("Implies", "Suy ra"));
+            words.add(new Word("Matrix", "Ma trận"));
+            words.add(new Word("Perpendicular", "Vuông góc"));
+            words.add(new Word("Therefore", "Do đó"));
+            words.add(new Word("Angle", "Góc"));
+            words.add(new Word("Factorial", "Giai thừa"));
+            words.add(new Word("Vector", "Véc tơ"));
+            words.add(new Word("Square root", "Căn bậc 2"));
             return words;
         }
 

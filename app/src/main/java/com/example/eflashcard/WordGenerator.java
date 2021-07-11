@@ -21,7 +21,7 @@ public class WordGenerator {
             words.add(new Word("Therefore", "do đó"));
             words.add(new Word("Angel", "góc"));
             words.add(new Word("Factorial", "giai thừa"));
-            words.add(new Word("Fector", "véc tơ"));
+            words.add(new Word("Vector", "véc tơ"));
             words.add(new Word("Square_root", "căn bậc 2"));
 
 

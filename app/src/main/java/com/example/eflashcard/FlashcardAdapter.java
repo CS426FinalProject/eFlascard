@@ -3,10 +3,13 @@ package com.example.eflashcard;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,28 +37,32 @@ public class FlashcardAdapter extends RecyclerView.Adapter<FlashcardAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        AnimatorSet mSetRightOut;
-        AnimatorSet mSetLeftIn;
         AtomicBoolean mIsBackVisible = new AtomicBoolean(false);
-        View mCardFrontLayout;
-        View mCardBackLayout;
 
         Word word = words.get(position);
         FrameLayout card = holder.card;
 
         // Find views ----------------------------------------------------
-        mCardBackLayout = card.findViewById(R.id.card_back);
-        mCardFrontLayout = card.findViewById(R.id.card_front);
+        View mCardBackLayout = card.findViewById(R.id.card_back);
+        View mCardFrontLayout = card.findViewById(R.id.card_front);
         TextView tvDefinition = mCardBackLayout.findViewById(R.id.definition);
         TextView tvWord = mCardFrontLayout.findViewById(R.id.word);
         tvWord.setText(word.getWord());
         tvDefinition.setText(word.getDefinition());
+        ImageView image = mCardBackLayout.findViewById(R.id.pic);
+        image.setImageResource(word.getImageID(context));
+        Button pronounce = mCardBackLayout.findViewById(R.id.pronounce);
+        pronounce.setEnabled(false);
+        pronounce.setOnClickListener(v -> {
+            MediaPlayer player = MediaPlayer.create(context, word.getAudioID(context));
+            player.start();
+        });
         // ---------------------------------------------------------------
 
 
         // Load animations
-        mSetRightOut = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.animator.out_animation);
-        mSetLeftIn = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.animator.in_animation);
+        AnimatorSet mSetRightOut = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.animator.out_animation);
+        AnimatorSet mSetLeftIn = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.animator.in_animation);
         // ---------------------------------------------------------------
 
         // Change camera distance ----------------------------------------
@@ -72,21 +79,26 @@ public class FlashcardAdapter extends RecyclerView.Adapter<FlashcardAdapter.View
                 mSetRightOut.start();
                 mSetLeftIn.start();
                 mIsBackVisible.set(true);
+                pronounce.setEnabled(true);
             } else {
                 mSetRightOut.setTarget(mCardBackLayout);
                 mSetLeftIn.setTarget(mCardFrontLayout);
                 mSetRightOut.start();
                 mSetLeftIn.start();
                 mIsBackVisible.set(false);
+                pronounce.setEnabled(false);
             }
         });
-
-
     }
 
     @Override
     public int getItemCount() {
         return words.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

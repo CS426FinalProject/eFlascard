@@ -17,8 +17,6 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.list_word);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(new FlashcardAdapter(generator.generateChemistryWords(),this));
-
-
         SnapHelper helper = new PagerSnapHelper();
         helper.attachToRecyclerView(recyclerView);
     }

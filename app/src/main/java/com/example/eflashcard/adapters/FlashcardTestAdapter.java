@@ -85,7 +85,8 @@ public class FlashcardTestAdapter extends RecyclerView.Adapter<FlashcardTestAdap
         tvQuestion.setText(word.getDefinition());
         bSubmit.setOnClickListener(v -> {
             String answer = etAnswer.getText().toString().toLowerCase();
-            if (!answer.equals("")) {
+            answer = answer.replaceAll("\t", "").replaceAll("\n", "").trim();
+            if (!answer.equals("") ) {
                 if (answer.equals(word.getWord().toLowerCase())) {
                     backgroundTest.setImageResource(R.drawable.background_correct);
                 }

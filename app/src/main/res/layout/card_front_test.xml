@@ -16,7 +16,7 @@
         android:orientation="vertical">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="1dp"
             android:layout_weight="1">
             <Button
                 android:layout_width="wrap_content"
@@ -50,6 +50,7 @@
             android:padding="8dp"
             android:fontFamily="@font/helvetica"
             android:id="@+id/question"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"

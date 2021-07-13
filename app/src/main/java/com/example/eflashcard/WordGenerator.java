@@ -2,6 +2,8 @@ package com.example.eflashcard;
 
 import android.content.Context;
 
+import com.example.eflashcard.models.Word;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

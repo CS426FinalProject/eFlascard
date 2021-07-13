@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="30dp"
-        android:src="@drawable/background_back_card"/>
+        android:src="@drawable/background_front_card_v2"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,13 +29,12 @@
                 android:text="@string/hint"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="4dp"
                 android:id="@+id/hint"/>
         </RelativeLayout>
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:layout_marginRight="54dp"
             android:layout_marginLeft="54dp"
             android:src="@drawable/acid"
@@ -54,7 +53,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:gravity="center_horizontal|top">
             <EditText
                 android:layout_width="match_parent"
@@ -70,7 +69,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="2">
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

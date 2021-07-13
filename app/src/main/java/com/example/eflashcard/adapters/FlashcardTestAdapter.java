@@ -79,10 +79,10 @@ public class FlashcardTestAdapter extends RecyclerView.Adapter<FlashcardTestAdap
                 String answer = etAnswer.getText().toString().toLowerCase();
                 if (!answer.equals("")) {
                     if (answer.equals(word.getWord().toLowerCase())) {
-                        backgroundTest.setBackgroundResource(R.drawable.background_correct);
+                        backgroundTest.setImageResource(R.drawable.background_correct);
                     }
                     else {
-                        backgroundTest.setBackgroundResource(R.drawable.background_incorrect);
+                        backgroundTest.setImageResource(R.drawable.background_incorrect);
                     }
                     holder.isSubmit = true;
                     etAnswer.setText("");

@@ -17,9 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.eflashcard.R;
+import com.example.eflashcard.models.Result;
 import com.example.eflashcard.models.Word;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -28,11 +27,15 @@ public class FlashcardTestAdapter extends RecyclerView.Adapter<FlashcardTestAdap
 
     List<Word> words;
     Context context;
-
+    OnSubmitListener listener;
     public FlashcardTestAdapter(List<Word> words, Context context)
     {
         this.words = words;
         this.context = context;
+    }
+
+    public void setOnSubmitListener(OnSubmitListener listener) {
+        this.listener = listener;
     }
 
     @NonNull
@@ -43,7 +46,8 @@ public class FlashcardTestAdapter extends RecyclerView.Adapter<FlashcardTestAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull FlashcardTestAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FlashcardTestAdapter.ViewHolder holder, int position) {
+        final boolean[] hintUsed = {false};
         AtomicBoolean mIsBackVisible = new AtomicBoolean(false);
 
         Word word = words.get(position);
@@ -57,10 +61,15 @@ public class FlashcardTestAdapter extends RecyclerView.Adapter<FlashcardTestAdap
         TextView tvQuestion = (TextView) mCardFrontLayout.findViewById(R.id.question);
         EditText etAnswer = (EditText) mCardFrontLayout.findViewById(R.id.answer);
         Button bSubmit = (Button) mCardFrontLayout.findViewById(R.id.submit);
-        TextView tvDefinition = (TextView) mCardBackLayout.findViewById(R.id.definition);
+        TextView tvAnswer = (TextView) mCardBackLayout.findViewById(R.id.definition);
         ImageView ivPic = (ImageView) mCardBackLayout.findViewById(R.id.pic);
         Button bPronounce = (Button) mCardBackLayout.findViewById(R.id.pronounce);
         ImageView backgroundTest = (ImageView) mCardBackLayout.findViewById(R.id.background_back_card_test);
+        // ---------------------------------------------------------------
+
+        // Load animations
+        AnimatorSet mSetRightOut = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.animator.out_animation);
+        AnimatorSet mSetLeftIn = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.animator.in_animation);
         // ---------------------------------------------------------------
 
         // Set views -----------------------------------------------------
@@ -69,43 +78,44 @@ public class FlashcardTestAdapter extends RecyclerView.Adapter<FlashcardTestAdap
             public void onClick(View v) {
                 MediaPlayer player = MediaPlayer.create(context, word.getAudioID(context));
                 player.start();
+                hintUsed[0] = true;
             }
         });
         ivImage.setImageResource(word.getImageID(context));
         tvQuestion.setText(word.getDefinition());
-        bSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String answer = etAnswer.getText().toString().toLowerCase();
-                if (!answer.equals("")) {
-                    if (answer.equals(word.getWord().toLowerCase())) {
-                        backgroundTest.setImageResource(R.drawable.background_correct);
-                    }
-                    else {
-                        backgroundTest.setImageResource(R.drawable.background_incorrect);
-                    }
-                    holder.isSubmit = true;
-                    etAnswer.setText("");
-                    card.callOnClick();
+        bSubmit.setOnClickListener(v -> {
+            String answer = etAnswer.getText().toString().toLowerCase();
+            if (!answer.equals("")) {
+                if (answer.equals(word.getWord().toLowerCase())) {
+                    backgroundTest.setImageResource(R.drawable.background_correct);
                 }
+                else {
+                    backgroundTest.setImageResource(R.drawable.background_incorrect);
+                }
+                holder.isSubmit = true;
+                etAnswer.setText("");
+                etAnswer.setEnabled(false);
+                etAnswer.clearFocus();
+                mSetRightOut.setTarget(mCardFrontLayout);
+                mSetLeftIn.setTarget(mCardBackLayout);
+                mSetRightOut.start();
+                mSetLeftIn.start();
+                mIsBackVisible.set(true);
+                bPronounce.setEnabled(true);
+
+                listener.onSubmit(new Result(answer.equals(word.getWord().toLowerCase()), hintUsed[0]));
             }
         });
-        tvDefinition.setText(word.getDefinition());
+        tvAnswer.setText(word.getWord());
         ivPic.setImageResource(word.getImageID(context));
-        bPronounce.setEnabled(false);
-        bPronounce.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MediaPlayer player = MediaPlayer.create(context, word.getAudioID(context));
-                player.start();
-            }
+        //bPronounce.setEnabled(false);
+        bPronounce.setOnClickListener(v -> {
+            MediaPlayer player = MediaPlayer.create(context, word.getAudioID(context));
+            player.start();
         });
         // ---------------------------------------------------------------
 
-        // Load animations
-        AnimatorSet mSetRightOut = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.animator.out_animation);
-        AnimatorSet mSetLeftIn = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.animator.in_animation);
-        // ---------------------------------------------------------------
+
 
         // Change camera distance ----------------------------------------
         int distance = 8000;
@@ -113,28 +123,6 @@ public class FlashcardTestAdapter extends RecyclerView.Adapter<FlashcardTestAdap
         mCardFrontLayout.setCameraDistance(scale);
         mCardBackLayout.setCameraDistance(scale);
         // ---------------------------------------------------------------
-
-        card.setOnClickListener(v -> {
-            if (holder.isSubmit) {
-                if (!mIsBackVisible.get()) {
-                    mSetRightOut.setTarget(mCardFrontLayout);
-                    mSetLeftIn.setTarget(mCardBackLayout);
-                    mSetRightOut.start();
-                    mSetLeftIn.start();
-                    mIsBackVisible.set(true);
-                    bPronounce.setEnabled(true);
-                    etAnswer.setEnabled(false);
-                } else {
-                    mSetRightOut.setTarget(mCardBackLayout);
-                    mSetLeftIn.setTarget(mCardFrontLayout);
-                    mSetRightOut.start();
-                    mSetLeftIn.start();
-                    mIsBackVisible.set(false);
-                    bPronounce.setEnabled(false);
-                    etAnswer.setEnabled(true);
-                }
-            }
-        });
     }
 
     @Override
@@ -155,5 +143,9 @@ public class FlashcardTestAdapter extends RecyclerView.Adapter<FlashcardTestAdap
             super(itemView);
             card = itemView.findViewById(R.id.card_test);
         }
+    }
+
+    public interface OnSubmitListener {
+        void onSubmit(Result result);
     }
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/background_topic"
+
+    android:paddingTop="100dp">
+    <TextView
+        android:fontFamily="@font/helvetica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/topics"
+        android:textStyle="bold"
+        android:textSize="60sp"
+        android:layout_marginBottom="150dp"
+        android:textColor="@color/white"/>
+    <Button
+        android:fontFamily="@font/helvetica"
+        android:id="@+id/maths"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="@string/math"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        android:layout_marginBottom="15dp"/>
+    <Button
+        android:fontFamily="@font/helvetica"
+        android:id="@+id/physics"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="@string/physics"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        android:layout_marginBottom="15dp"/>
+    <Button
+        android:fontFamily="@font/helvetica"
+        android:id="@+id/chemistry"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="@string/chemistry"
+        android:textAllCaps="false"
+        android:textSize="30sp"/>
+
+</LinearLayout>

@@ -8,14 +8,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="30dp"
-        android:src="@drawable/rectangle"/>
+        android:src="@drawable/background_front_card"/>
 
-    <TextView
-        android:id="@+id/word"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textColor="@color/white"
-        style="@style/Base.TextAppearance.AppCompat.Display1"
-        android:gravity="center"/>
-
+        android:gravity="center">
+        <TextView
+            android:fontFamily="@font/helvetica"
+            android:textAlignment="center"
+            android:id="@+id/word"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            style="@style/Base.TextAppearance.AppCompat.Display1"/>
+    </LinearLayout>
 </FrameLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/background_menu"
+
+    android:paddingTop="100dp">
+    <TextView
+        android:fontFamily="@font/helvetica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/e_flashcard"
+        android:textStyle="bold"
+        android:textSize="55sp"
+        android:layout_marginBottom="150dp"
+        android:textColor="@color/white"/>
+    <Button
+        android:fontFamily="@font/helvetica"
+        android:id="@+id/study"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="@string/study"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        android:layout_marginBottom="15dp"/>
+    <Button
+        android:fontFamily="@font/helvetica"
+        android:id="@+id/test"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="@string/test"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        android:layout_marginBottom="15dp"/>
+    <Button
+        android:fontFamily="@font/helvetica"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="@string/about"
+        android:textAllCaps="false"
+        android:textSize="30sp"/>
+
+</LinearLayout>

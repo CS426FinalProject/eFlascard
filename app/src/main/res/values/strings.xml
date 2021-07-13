@@ -9,4 +9,6 @@
     <string name="chemistry">Chemistry</string>
     <string name="topics">Topics</string>
     <string name="e_flashcard">E-Flashcard</string>
+    <string name="hint">Hint</string>
+    <string name="submit">Submit</string>
 </resources>

@@ -35,4 +35,19 @@ public class WordGenerator {
         words.add(new Word("Precipitation", "Sự kết tủa"));
         return words;
     }
+
+    public List<Word> generatePhysicsWords() {
+        List<Word> words = new ArrayList<>();
+        words.add(new Word("Mass", "Khối lượng"));
+        words.add(new Word("Gravity", "Trọng lực"));
+        words.add(new Word("Friction", "Sự ma sát"));
+        words.add(new Word("Collision", "Va chạm"));
+        words.add(new Word("Magnet", "Nam châm"));
+        words.add(new Word("Speed", "Tốc độ"));
+        words.add(new Word("Temperature", "Nhiệt độ"));
+        words.add(new Word("Momentum", "Mô-men"));
+        words.add(new Word("Torque", "Mô-men lực"));
+        words.add(new Word("Distance", "Khoảng cách"));
+        return words;
+    }
 }

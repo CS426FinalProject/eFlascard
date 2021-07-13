@@ -32,8 +32,7 @@ public class StudyActivity extends AppCompatActivity {
         if(topic.equals("MATHS"))
             vocabs = generator.generateMathWords();
         else if(topic.equals("PHYSICS"))
-            // Đổi thành generatePhysicsWords()
-            vocabs = generator.generateMathWords();
+            vocabs = generator.generatePhysicsWords();
         else vocabs = generator.generateChemistryWords();
 
         recyclerView.setAdapter(new FlashcardAdapter(vocabs,this));

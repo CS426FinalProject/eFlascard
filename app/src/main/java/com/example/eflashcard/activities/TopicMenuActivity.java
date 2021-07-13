@@ -28,8 +28,8 @@ public class TopicMenuActivity extends AppCompatActivity {
                 Intent intent;
                 if(type.equals("STUDY"))
                     intent = new Intent(this, StudyActivity.class);
-                // Đổi lại thành TestActivity hay gì đó
-                // Nhớ thêm activity vào manifest
+                else if(type.equals("TEST"))
+                    intent = new Intent(this, TestActivity.class);
                 else intent = new Intent(this, StudyActivity.class);
                 intent.putExtra("TOPIC", b.getText().toString().toUpperCase());
                 startActivity(intent);

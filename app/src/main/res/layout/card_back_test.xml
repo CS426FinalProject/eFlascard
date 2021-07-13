@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:id="@+id/background_back_card_test"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:fontFamily="@font/helvetica"
+            android:id="@+id/definition"
+            android:text="Axit"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            style="@style/Base.TextAppearance.AppCompat.Display1"
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"/>
+        <ImageView
+            android:id="@+id/pic"
+            android:src="@drawable/acid"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginBottom="20dp"/>
+        <Button
+            android:fontFamily="@font/helvetica"
+            android:id="@+id/pronounce"
+            android:drawableStart="@drawable/ic_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="@string/pronounce"
+            android:textColor="@android:color/black"
+            android:backgroundTint="@android:color/white"/>
+    </LinearLayout>
 
 </FrameLayout>

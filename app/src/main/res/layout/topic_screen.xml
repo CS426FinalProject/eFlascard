@@ -25,7 +25,8 @@
         android:text="@string/math"
         android:textAllCaps="false"
         android:textSize="30sp"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_background_topic"/>
     <Button
         android:fontFamily="@font/helvetica"
         android:id="@+id/physics"
@@ -34,7 +35,8 @@
         android:text="@string/physics"
         android:textAllCaps="false"
         android:textSize="30sp"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_background_topic"/>
     <Button
         android:fontFamily="@font/helvetica"
         android:id="@+id/chemistry"
@@ -42,6 +44,7 @@
         android:layout_height="wrap_content"
         android:text="@string/chemistry"
         android:textAllCaps="false"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        android:background="@drawable/button_background_topic"/>
 
 </LinearLayout>

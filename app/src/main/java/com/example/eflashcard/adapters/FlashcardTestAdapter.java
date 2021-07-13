@@ -73,6 +73,7 @@ public class FlashcardTestAdapter extends RecyclerView.Adapter<FlashcardTestAdap
         // ---------------------------------------------------------------
 
         // Set views -----------------------------------------------------
+        bPronounce.setEnabled(false);
         bHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,10 +87,14 @@ public class FlashcardTestAdapter extends RecyclerView.Adapter<FlashcardTestAdap
         bSubmit.setOnClickListener(v -> {
             String answer = etAnswer.getText().toString().toLowerCase();
             if (!answer.equals("")) {
-                if (answer.equals(word.getWord().toLowerCase())) {
+                boolean result = answer.equals(word.getWord().toLowerCase());
+                TextView displayResult = mCardBackLayout.findViewById(R.id.result);
+                if (result) {
+                    displayResult.setText(R.string.correct);
                     backgroundTest.setImageResource(R.drawable.background_correct);
                 }
                 else {
+                    displayResult.setText(R.string.incorrect);
                     backgroundTest.setImageResource(R.drawable.background_incorrect);
                 }
                 holder.isSubmit = true;
@@ -103,7 +108,7 @@ public class FlashcardTestAdapter extends RecyclerView.Adapter<FlashcardTestAdap
                 mIsBackVisible.set(true);
                 bPronounce.setEnabled(true);
 
-                listener.onSubmit(new Result(answer.equals(word.getWord().toLowerCase()), hintUsed[0]));
+                listener.onSubmit(new Result(result, hintUsed[0]));
             }
         });
         tvAnswer.setText(word.getWord());

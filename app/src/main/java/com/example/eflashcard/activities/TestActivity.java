@@ -59,7 +59,7 @@ public class TestActivity extends AppCompatActivity {
                 }
                 new AlertDialog.Builder(this)
                 .setTitle("Result")
-                .setMessage("Final score: " + score * 10 / results.size())
+                .setMessage("Final score: " + score + "/" + vocabs.size())
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                     finish();
                 }).show();

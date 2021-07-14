@@ -39,6 +39,7 @@
         android:background="@drawable/button_background_menu"/>
     <Button
         android:fontFamily="@font/helvetica"
+        android:id="@+id/about"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:text="@string/about"

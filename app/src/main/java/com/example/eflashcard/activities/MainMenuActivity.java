@@ -22,8 +22,10 @@ public class MainMenuActivity extends AppCompatActivity {
 
         Button study = findViewById(R.id.study);
         Button test = findViewById(R.id.test);
+        Button about = findViewById(R.id.about);
         study.setOnClickListener(v -> onClickHandler("STUDY"));
         test.setOnClickListener(v -> onClickHandler("TEST"));
+        about.setOnClickListener(v -> startActivity(new Intent(this, AboutActivity.class)));
     }
 
     // Type: study or test

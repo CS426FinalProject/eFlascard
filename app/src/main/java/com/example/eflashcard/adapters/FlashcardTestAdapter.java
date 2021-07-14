@@ -87,6 +87,7 @@ public class FlashcardTestAdapter extends RecyclerView.Adapter<FlashcardTestAdap
         bSubmit.setOnClickListener(v -> {
             String answer = etAnswer.getText().toString().toLowerCase();
             if (!answer.equals("")) {
+                answer = answer.replaceAll("\t", "").replaceAll("\n", "").trim();
                 boolean result = answer.equals(word.getWord().toLowerCase());
                 TextView displayResult = mCardBackLayout.findViewById(R.id.result);
                 if (result) {
